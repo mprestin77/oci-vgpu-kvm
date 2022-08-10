@@ -199,7 +199,9 @@ sudo vi  /etc/sysconfig/network-scripts/ifcfg-bridge1
 
 Add the following content and save the file
 STP=no
+
 TYPE=Bridge
+
 PROXY_METHOD=none
 BROWSER_ONLY=no
 BOOTPROTO=none
