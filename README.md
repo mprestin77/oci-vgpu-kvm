@@ -1,11 +1,10 @@
+# Deploying Nvidia vGPU Graphics Virtualization on OCI
 
-Deploying Nvidia vGPU Graphics Virtualization on OCI
-
-1.	Introduction
+# 1.	Introduction
 
 NVIDIA virtual GPU (vGPU) is a graphics virtualization solution that provides multiple virtual machines (VMs) simultaneous access to one physical Graphics Processing Unit (GPU) on the VM Host Server. This article explains how to configure vGPU graphics virtualization on Nvidia Ampere GPU cards using I/O Virtualization (SR-IOV) mechanism, and how to deploy it on Oracle Cloud Infrastructure. For more information about Nvidia vGPU graphics virtualization refer to Nvidia Virtual GPU User Guide
 
-2.	Prerequisites 
+# 2.	Prerequisites 
 
 To use vGPU graphics virtualization you need to get vGPU drivers from NVIDIA. Go to Nvidia vGPU Software and login your Enterprise account with Nvidia. If you don’t have an enterprise account with Nvidia you can select 90 days evaluation trial. Open Nvidia Licensing Portal / Software Downloads. Select “Product Family: VGPU”, Platform “Linux KVM”
 
@@ -17,7 +16,7 @@ NVIDIA-Linux-x86_64-xxx.xx.xx-vgpu-kvm.run - vGPU manager for the VM host
 NVIDIA-Linux-x86_64-xxx.xx.xx-grid.run - vGPU driver for Linux VM guest
 xxx.xx_grid_win10_win11_server2016_server2019_server2022_64bit_international.exe - vGPU driver for Windows VM guest
 
-3.	Configuration on OCI
+# 3.	Configuration on OCI
 
 3.1	Deploy a Bare Metal GPU server using one of the shapes below
 
@@ -71,7 +70,7 @@ After enabling external access to guest VMs you should see all public IP(s) in y
 ![image](https://user-images.githubusercontent.com/54962742/184031753-97b4afb1-b38d-4583-a5f9-5eb5aa5311fa.png)
 
 
-4.	Oracle Linux 8 Host Setup Steps
+# 4.	Oracle Linux 8 Host Setup Steps
 
 4.1	Copy the downloaded vGPU driver files to the server and install the host driver
 
@@ -252,7 +251,7 @@ sudo ip link show
 4.7	Make an ISO of the vGPU driver for guest VMs
 genisoimage -o vgpu-guest-driver.iso 512.78_grid_win10_win11_server2016_server2019_server2022_64bit_international.exe 
 
-5.	Configuration in KVM
+# 5.	Configuration in KVM
 
 5.1	 Start VNC server 
 
@@ -331,7 +330,7 @@ After that Windows setup should detect the hard drive
 
 Click Next and proceed with Windows installation. 
 
-6.	Windows VM Configuration
+# 6.	Windows VM Configuration
 
 6.1	After installation of Windows OS edit networking configuration. Open Network Connections / Properties and edit IP settings. Select “Manual” and enable IPV4. Configure IPV4 static IP address to match the private IP configured in VLAN External Access in step 3.5. In my example, for vm1 I configured VLAN private IP address 10.0.79.11. The same static IP must be configured in the guest OS. For Gateway and DNS I am using the 1-st IP on VLAN subnet that in my case is 10.0.79.1
 
