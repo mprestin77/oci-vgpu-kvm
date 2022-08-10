@@ -51,8 +51,8 @@ do
 	if [ -n $fname ]; then
 		echo "Creating vGPU on $dev"
 		uuid=$(uuidgen)
-		echo $uuid | sudo tee $(dirname $fname)/create
-		sudo mdevctl define --auto --uuid $uuid
+		echo $uuid | tee $(dirname $fname)/create
+		mdevctl define --auto --uuid $uuid
 		((icount+=1))
 
         fi	       
