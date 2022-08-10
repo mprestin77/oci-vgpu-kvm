@@ -1,6 +1,6 @@
 # Deploying Nvidia vGPU Graphics Virtualization on OCI
 
-1.	Introduction
+# 1.	Introduction
 
 NVIDIA virtual GPU (vGPU) is a graphics virtualization solution that provides multiple virtual machines (VMs) simultaneous access to one physical Graphics Processing Unit (GPU) on the VM Host Server. This article explains how to configure vGPU graphics virtualization on Nvidia Ampere GPU cards using I/O Virtualization (SR-IOV) mechanism, and how to deploy it on Oracle Cloud Infrastructure. For more information about Nvidia vGPU graphics virtualization refer to Nvidia Virtual GPU User Guide
 
