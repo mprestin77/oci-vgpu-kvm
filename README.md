@@ -18,7 +18,7 @@ xxx.xx_grid_win10_win11_server2016_server2019_server2022_64bit_international.exe
 
 # 3.	Configuration on OCI
 
-3.1	Deploy a Bare Metal GPU server using one of the shapes below
+3.1	Deploy a Bare Metal GPU server using one of the baremetal shapes below
 
 BM.GPU.T1.2 (baremetal instance with 2 Nvidia A10 GPU)  
 BM.GPU.10.4 (baremetal instance with 4 Nvidia A10 GPU)
@@ -203,12 +203,8 @@ TYPE=Bridge
 PROXY_METHOD=none
 BROWSER_ONLY=no
 BOOTPROTO=none
-IPADDR=
-PREFIX=
-GATEWAY=
 IPV4_FAILURE_FATAL=no
 NAME=bridge1
-UUID=
 DEVICE=bridge1
 ONBOOT=yes
 AUTOCONNECT_SLAVES=yes
@@ -216,8 +212,9 @@ Attach the bridge to the VLAN interface
 
 sudo vi /etc/sysconfig/network-scripts/ifcfg-ens300f0.1687 
 where:
-	ens300f0 is the primary host NIC
-	1687 is the L2 VLANs VLAN tag that you copied in step 4 
+ens300f0 is the primary host NIC
+1687 is the L2 VLANs VLAN tag that you copied in step 4 
+
 Add the following content replacing VLAN ID with your VLAN tag
 VLAN=yes
 TYPE=Vlan
@@ -232,7 +229,6 @@ UUID=
 DEVICE=ens300f0.1687
 ONBOOT=yes
 BRIDGE=bridge1
-
 
 Bring up the bridge and host VLAN interfaces and restart the network service.  Check whether newly created interfaces are showing up after network restart:
 
