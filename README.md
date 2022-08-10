@@ -21,7 +21,8 @@ xxx.xx_grid_win10_win11_server2016_server2019_server2022_64bit_international.exe
 
 3.1	Deploy a Bare Metal GPU server with OL8 using BM.GPU.T1.2 shape (dual A10 BM shape), select the latest non-GPU image, with at least 100 GB of boot volume space.  You can deploy it in an existing VCN with a public subnet or create a new VCN with a public subnet enabling ingress traffic to SSH port TCP/22.
    
-![image](https://user-images.githubusercontent.com/54962742/184029287-531443ff-7b0f-4061-a6ff-be6aaf27df22.png)
+![image](https://user-images.githubusercontent.com/54962742/184030386-ab4ddfc8-5a9d-4056-97c2-015b57234026.png)
+
 
 Prior to creating the instance click on “Show Advanced Options” link and open OS Management Service Agent tab.
 
