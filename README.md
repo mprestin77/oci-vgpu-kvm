@@ -198,18 +198,17 @@ Add a new line to the end of of the file
 sudo vi  /etc/sysconfig/network-scripts/ifcfg-bridge1
 
 Add the following content and save the file
-STP=no
+   STP=no
+   TYPE=Bridge
+   PROXY_METHOD=none
+   BROWSER_ONLY=no
+   BOOTPROTO=none
+   IPV4_FAILURE_FATAL=no
+   NAME=bridge1
+   DEVICE=bridge1
+   ONBOOT=yes
+   AUTOCONNECT_SLAVES=yes
 
-TYPE=Bridge
-
-PROXY_METHOD=none
-BROWSER_ONLY=no
-BOOTPROTO=none
-IPV4_FAILURE_FATAL=no
-NAME=bridge1
-DEVICE=bridge1
-ONBOOT=yes
-AUTOCONNECT_SLAVES=yes
 Attach the bridge to the VLAN interface
 
 sudo vi /etc/sysconfig/network-scripts/ifcfg-ens300f0.1687 
@@ -218,19 +217,18 @@ ens300f0 is the primary host NIC
 1687 is the L2 VLANs VLAN tag that you copied in step 4 
 
 Add the following content replacing VLAN ID with your VLAN tag
-VLAN=yes
-TYPE=Vlan
-PHYSDEV=ens300f0
-VLAN_ID=1687
-REORDER_HDR=yes
-GVRP=no
-MVRP=no
-HWADDR=
-NAME=ens300f0.1687
-UUID=
-DEVICE=ens300f0.1687
-ONBOOT=yes
-BRIDGE=bridge1
+   VLAN=yes
+   TYPE=Vlan
+   PHYSDEV=ens300f0
+   VLAN_ID=1687
+   REORDER_HDR=yes
+   GVRP=no
+   MVRP=no
+   HWADDR=
+   NAME=ens300f0.1687
+   DEVICE=ens300f0.1687
+   ONBOOT=yes
+   BRIDGE=bridge1
 
 Bring up the bridge and host VLAN interfaces and restart the network service.  Check whether newly created interfaces are showing up after network restart:
 
