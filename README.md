@@ -85,7 +85,7 @@ Verify driver installation
 
 lsmod | grep nvidia
 
-![image](https://user-images.githubusercontent.com/54962742/184041219-6ec89608-7082-4bae-b929-bab1ff21c11b.png)
+![image](https://user-images.githubusercontent.com/54962742/184041274-6f5b8697-bd3a-40ba-a822-59ec22735fb3.png)
  
 Both nvidia_vgpu_vfio and nvidia modules must be loaded
 
