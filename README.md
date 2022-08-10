@@ -9,7 +9,8 @@ NVIDIA virtual GPU (vGPU) is a graphics virtualization solution that provides mu
 
 To use vGPU graphics virtualization you need to get vGPU drivers from NVIDIA. Go to Nvidia vGPU Software and login your Enterprise account with Nvidia. If you don’t have an enterprise account with Nvidia you can select 90 days evaluation trial. Open Nvidia Licensing Portal / Software Downloads. Select “Product Family: VGPU”, Platform “Linux KVM”
 
-![image](https://user-images.githubusercontent.com/54962742/184029250-8d849963-3a1e-4bf2-b77a-925f7b0740cb.png)
+![image](https://user-images.githubusercontent.com/54962742/184029997-257d9071-1a21-435c-a5e9-68f956904372.png)
+
 
 Download zip file with the latest vGPU driver version that comes with the following files:
 NVIDIA-Linux-x86_64-xxx.xx.xx-vgpu-kvm.run - vGPU manager for the VM host
