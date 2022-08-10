@@ -1,5 +1,5 @@
 #/bin/bash
-set -x
+#set -x
 GPU_PROFILE=$1
 NUM_DEV=$2
 
@@ -25,8 +25,6 @@ do
 done
  
 echo $pci_bus_id
- 
-#sudo /usr/lib/nvidia/sriov-manage -e 
  
 virtfn=$(readlink -f /sys/bus/pci/devices/0000:$pci_bus_id/virtfn*)
 echo $virtfn
@@ -59,5 +57,4 @@ do
 
         fi	       
 done 
-
 exit 0
