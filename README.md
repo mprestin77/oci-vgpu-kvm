@@ -120,7 +120,7 @@ Create vGPU devices with support of SR-IOV. Copy create-mdev.sh script to the se
 chmod +x create-mdev.sh
 
 The script takes 2 parameters
-./create-mdev.sh <GPU profile> <Number of Devices>
+sudo ./create-mdev.sh <GPU profile> <Number of Devices>
 
 You can get a list of supported vGPU profiles by running
 
@@ -135,7 +135,7 @@ A10-4Q – Virtual Workstations
 A10-4C – Inference Workloads
 Select the profile that is more appropriate for your workload. For example, if you want to create 6 vGPU devices with A10-4Q profile (4GB GPU memory per vGPU) run:
 
-./create-mdev.sh A10-4Q 6
+sudo ./create-mdev.sh A10-4Q 6
 
 The script checks for all available PCI bus IDs and prompts you to select one where you want to create vGPU devices:
 
