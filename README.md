@@ -19,7 +19,12 @@ xxx.xx_grid_win10_win11_server2016_server2019_server2022_64bit_international.exe
 
 3.	Configuration on OCI
 
-3.1	Deploy a Bare Metal GPU server with OL8 using BM.GPU.T1.2 shape (dual A10 BM shape), select the latest non-GPU image, with at least 100 GB of boot volume space.  You can deploy it in an existing VCN with a public subnet or create a new VCN with a public subnet enabling ingress traffic to SSH port TCP/22.
+3.1	Deploy a Bare Metal GPU server using one of the shapes below
+
+BM.GPU.T1.2 (baremetal instance with 2 Nvidia A10 GPU)  
+BM.GPU.10.4 (baremetal instance with 4 Nvidia A10 GPU)
+
+Select the latest Oracle Linux 8 non-GPU image, with at least 100 GB of boot volume space.  You can deploy it in an existing VCN with a public subnet or create a new VCN with a public subnet enabling ingress traffic to SSH port TCP/22.
    
 ![image](https://user-images.githubusercontent.com/54962742/184030386-ab4ddfc8-5a9d-4056-97c2-015b57234026.png)
 
@@ -28,7 +33,7 @@ Prior to creating the instance click on “Show Advanced Options” link and ope
 
 Note: It is recommended to uncheck “OS Management Service Agent” to avoid automatic apply of updates and patches that may cause interoperability problems with Nvidia driver 
 
-![image](https://user-images.githubusercontent.com/54962742/184029316-68f67b8f-85c5-46b3-a28d-a75e8c6f8ea6.png)
+![image](https://user-images.githubusercontent.com/54962742/184031215-a0b2e58e-430f-48e8-9195-a1864cfeb2f7.png)
 
 
 3.2	Create a NSG with two rules: 
@@ -39,15 +44,15 @@ Note: if you want to enable any additional traffic to guest VMs that will be cre
 
 3.3	Create a L2 VLAN Subnet in the VCN with a /24 CIDR as a part of VCN CIDR range, and associate the created NSG with the VLAN
 
-![image](https://user-images.githubusercontent.com/54962742/184029363-1ad6cbb2-3e4d-4807-8af1-e81355f9df6c.png)
+![image](https://user-images.githubusercontent.com/54962742/184031275-d4cf2bce-13f4-45f7-9ec3-69bb8a9dfdb5.png)
  
-![image](https://user-images.githubusercontent.com/54962742/184029461-c0f4fb94-be49-4a7c-9d02-876a2ae390c3.png)
+![image](https://user-images.githubusercontent.com/54962742/184031319-ac887206-1d9c-4750-8b7d-d201454daf9c.png)
 
 Save VLAN ID in your records. In my example VLAN Tag is 1687
 
 3.4	Navigate the created compute instance, go to Attached vNICs and add a vNIC attached to the VLAN
 
-![image](https://user-images.githubusercontent.com/54962742/184029517-93455613-1d61-4799-8d47-150c0756e906.png)
+![image](https://user-images.githubusercontent.com/54962742/184031436-f293dd33-cd2c-4462-84ac-972d720ca759.png)
 
 In the list of “Attached vNICs” you should see 2 vNICs where the 1-st one is the primary vNIC of the compute instance and the 2-d vNIC will serve is the bridge interface for guest VMs
 
