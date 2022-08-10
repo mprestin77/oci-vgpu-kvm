@@ -56,22 +56,22 @@ Save VLAN ID in your records. In my example VLAN Tag is 1687
 
 In the list of “Attached vNICs” you should see 2 vNICs where the 1-st one is the primary vNIC of the compute instance and the 2-d vNIC will serve is the bridge interface for guest VMs
 
-![image](https://user-images.githubusercontent.com/54962742/184029565-effdfd83-a8bc-42dc-abfc-2ba9e8367b42.png)
+![image](https://user-images.githubusercontent.com/54962742/184031583-36fe9015-b9d4-40f7-9cdf-1ff5d03138a8.png)
 
 
 3.5	Open your VCN, click on VLANs and open the created VLAN.  Click on “Add External Access” button and add a reserved public IP for every guest VM that requires internet access (egress or ingress). Specifying private IP is optional (if not specified it will be allocated automatically from VLAN CIDR range..
 
 Note: This step can be deferred to a later stage once guest VM(s) are created.
 
-![image](https://user-images.githubusercontent.com/54962742/184029607-26e8658d-14a6-440a-8f48-eaa2f9578df7.png)
+![image](https://user-images.githubusercontent.com/54962742/184031677-c6ef1f8f-611c-40cb-897e-b146889a3d2a.png)
 
 
 After enabling external access to guest VMs you should see all public IP(s) in your VLAN External Access list including the public IP allocated for the bridge interface itself
 
-![image](https://user-images.githubusercontent.com/54962742/184029731-17083de0-b5b2-4a4d-b391-eec8377f8143.png)
+![image](https://user-images.githubusercontent.com/54962742/184031753-97b4afb1-b38d-4583-a5f9-5eb5aa5311fa.png)
 
 
-4.	OL8 Host Setup Steps
+4.	Oracle Linux 8 Host Setup Steps
 
 4.1	Copy the downloaded vGPU driver files to the server and install the host driver
 
@@ -86,13 +86,15 @@ Verify driver installation
 
 lsmod | grep nvidia
 
+![image](https://user-images.githubusercontent.com/54962742/184031862-7dc0032d-40a8-4b8d-8233-08fb5b0684d8.png)
  
-
 Both nvidia_vgpu_vfio and nvidia modules must be loaded
 
 Print the GPU device status with nvidia-smi command. 
 
 nvidia-smi
+
+![image](https://user-images.githubusercontent.com/54962742/184031942-60d6fb4e-4d57-4734-bc6d-0ef0e8aa063d.png)
  
 The output of this command shows the version of the loaded Nvidia driver. The command also displays all available GPUs, shows GPU utilization, PCI Bus ID of each GPU and other statistics intended to aid in the management and monitoring of NVIDIA GPU devices.
 
@@ -138,18 +140,20 @@ Select the profile that is more appropriate for your workload. For example, if y
 
 The script checks for all available PCI bus IDs and prompts you to select one where you want to create vGPU devices:
 
- 
+![image](https://user-images.githubusercontent.com/54962742/184032038-b33e0aaf-45b7-46fe-bcdc-6f27b729224d.png)
 
 Enter the number to select PCI bus you are creating the devices on.
 
 On completion the scrips shows the total number of created vGPU devices, for example:
 
+![image](https://user-images.githubusercontent.com/54962742/184032139-9324cb79-dd91-4b08-8894-ef6fbe299b55.png)
  
 
 Check that all vGPU devices are created
 
 mdevctl list
 
+![image](https://user-images.githubusercontent.com/54962742/184032161-0b73b3e2-70d0-4ef8-b785-b8f7cb7a9e40.png)
  
 Note: In this example the name of vGPU profile “nvidia-593” corresponds to A10-4Q vGPU profile. However, on your server the profile could be different. It depends on Nvidia driver version.
 
@@ -173,6 +177,7 @@ Check the name of NVMe device
 
 lsblk
  
+![image](https://user-images.githubusercontent.com/54962742/184032240-e1844651-39d3-4b00-a55a-f110dd9b854c.png)
 
 Note: if you need more space than the size of the local NVMe disk you can add Block Storage disk to the server and create a filesystem on it
 
@@ -242,6 +247,7 @@ sudo ip link show
 sudo systemctl restart network
 sudo ip link show
  
+![image](https://user-images.githubusercontent.com/54962742/184032443-2c03b4ed-09fe-4a9a-a206-6505831b063b.png)
 
 4.7	Make an ISO of the vGPU driver for guest VMs
 genisoimage -o vgpu-guest-driver.iso 512.78_grid_win10_win11_server2016_server2019_server2022_64bit_international.exe 
@@ -256,8 +262,8 @@ It will prompt you to create VNC password. Enter VNC password and verify it. You
 
 netstat -plnt
 
+![image](https://user-images.githubusercontent.com/54962742/184032516-d055c334-0b49-4516-b56a-d2afbfd7615a.png)
  
-
 Exit from ssh session to create ssh tunnel for vnc
 
 ssh -L59000:localhost:5901 opc@<instance-ip>
@@ -305,18 +311,22 @@ Note: If you are installing Windows 11 OS it requires a TPM and secure boot. Thi
 
 Windows setup will not detect virtIO disk because the driver is not installed. 
 
- 
+![image](https://user-images.githubusercontent.com/54962742/184032616-1fe3e5cf-294d-41e5-8da7-e696beb6a0d0.png)
+
 
 Click on Load driver icon navigating to the cdrom with virtIO ISO file and browse virtIO driver location
 
+![image](https://user-images.githubusercontent.com/54962742/184036587-d3e2e7ab-74cf-43bf-aced-091ae0db8109.png)
  
 
 Select both VirtIO Ethernet Adapter and VirtIO SCSI controller drivers to install
 
+![image](https://user-images.githubusercontent.com/54962742/184036725-2bd2d34b-bf51-493a-9d97-18b517375425.png)
  
 
 After that Windows setup should detect the hard drive
 
+![image](https://user-images.githubusercontent.com/54962742/184036826-df8eb4fc-1e6a-45c7-addf-11e006a1a4a6.png)
  
 
 Click Next and proceed with Windows installation. 
@@ -324,6 +334,8 @@ Click Next and proceed with Windows installation.
 6.	Windows VM Configuration
 
 6.1	After installation of Windows OS edit networking configuration. Open Network Connections / Properties and edit IP settings. Select “Manual” and enable IPV4. Configure IPV4 static IP address to match the private IP configured in VLAN External Access in step 3.5. In my example, for vm1 I configured VLAN private IP address 10.0.79.11. The same static IP must be configured in the guest OS. For Gateway and DNS I am using the 1-st IP on VLAN subnet that in my case is 10.0.79.1
+
+![image](https://user-images.githubusercontent.com/54962742/184036883-a343c1a3-39b6-41c7-abdf-ad134aac5f00.png)
  
 Check that you can ping the gateway IP 10.0.79.1 and check that you have an external connectivity (ping 8.8.8.8). 
 
@@ -352,6 +364,7 @@ Use RDP to connect to the instance using the public IP assigned to the VM.
 
 Open Device Manager and check that Windows OS detects Nvidia Display Adapter with the configured vGPU profile.
  
+![image](https://user-images.githubusercontent.com/54962742/184036931-92d8575d-e31b-4567-be85-f6b32f419fea.png)
 
 6.3	Run regedit and create an entry for the vGPU license server
 Location: HKEY_LOCAL_MACHINE\SOFTWARE\NVIDIA Corporation\Global\GridLicensing
@@ -361,6 +374,7 @@ The value should be set to your license server IP address
 For more information about Nvidia vGPU licensing refer to Configuring a Licensed Client of Nvidia License System.
 6.4	You can create more VMs by cloning an existing VM. Open virt-manager and shutdown the VM you are going to clone. Prior to cloning you can edit VM properties and remove ISO files from CDROM(s). After that right click on the VM and select “Clone” option. Edit the name of the new VM qcow2 file, and type on Clone button.  
 
+![image](https://user-images.githubusercontent.com/54962742/184036977-9ffb2494-dd0f-4475-85dc-1933d4da5e8c.png)
  
 
 Once VM is cloned return to the terminal console edit the new VM XML file to associate it with a new UUID. 
@@ -385,14 +399,15 @@ After setting the new static IP your RDP session will be disconnected. Create a 
 
 nvidia-smi vgpu -l
 
+![image](https://user-images.githubusercontent.com/54962742/184037003-6c9070ac-5e33-4772-be79-8c8c2f76e721.png)
   
 
 To create GPU load start streaming or playing games using GPU inside a guest VM.  
 
 You can also monitor vGPU usage from guest VM OS in Windows Task Manager
 
- 
-
+![image](https://user-images.githubusercontent.com/54962742/184037044-4bf59268-985c-4459-ab8e-c392a4f597b4.png)
+  
  
 
 Appendix A
