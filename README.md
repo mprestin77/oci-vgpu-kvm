@@ -116,7 +116,7 @@ Note: change below values if PCI addresses reported in nvidia-smi are different
 sudo /usr/lib/nvidia/sriov-manage -e 00000000:17:00.0
 sudo /usr/lib/nvidia/sriov-manage -e 00000000:31:00.0
 
-Create vGPU devices with support of SR-IOV. Copy the script from Appendix A to your home directory on the server, add executable permission and run it. 
+Create vGPU devices with support of SR-IOV. Copy create-mdev.sh script to the server, add executable permission and run it. 
 
 chmod +x create-mdev.sh
 
@@ -408,69 +408,3 @@ You can also monitor vGPU usage from guest VM OS in Windows Task Manager
 
 ![image](https://user-images.githubusercontent.com/54962742/184037044-4bf59268-985c-4459-ab8e-c392a4f597b4.png)
   
- 
-
-Appendix A
-
-#/bin/bash
-GPU_PROFILE=$1
-NUM_DEV=$2
-
-if [ $# -ne 2 ]; then
-        echo "Usage: create-mdev.sh <GPU profile> <number of devices>" 
-        exit 1
-fi
-
-pci_ids=$(nvidia-smi vgpu -q | grep "^GPU" | cut -f 2,3 -d ':')
-echo $pci_ids
-if [ -z "$pci_ids" ]; then
-        echo "No PCI bus with Nvidia devices was found"
-        exit 1
-fi
-
-#Obtain the Bus/Device/Function (BDF) numbers of the host GPU device
-#lspci | grep NVIDIA
-echo "select PCI bus ID you want to create vGPU profile"
-select id in $pci_ids
-do
-   pci_bus_id=$id
-   break
-done
-
-echo $pci_bus_id
-
-#sudo /usr/lib/nvidia/sriov-manage -e 
-
-virtfn=$(readlink -f /sys/bus/pci/devices/0000:$pci_bus_id/virtfn*)
-echo $virtfn
-
-icount=0
-for vf in $virtfn
-do
-        if [ $icount -eq $NUM_DEV ]; then
-                echo "$icount devices created" 
-                break
-        fi
-
-        dev=$(basename $vf)
-
-        #Check if a device associated with this VF already exists 
-        mdevctl list | grep "$dev"
-        if [ $? -eq 0 ]; then
-                continue
-        fi
-
-        #Create a new vGPU device for this VF
-        echo $dev
-        fname=$(grep -l "$GPU_PROFILE" /sys/class/mdev_bus/$dev/mdev_supported_types/nvidia-*/name)
-        if [ -n $fname ]; then
-                echo "Creating vGPU on $dev"
-                uuid=$(uuidgen)
-                echo $uuid | sudo tee $(dirname $fname)/create
-                sudo mdevctl define --auto --uuid $uuid
-                ((icount+=1))
-
-        fi
-done
-exit 0
-
