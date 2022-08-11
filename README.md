@@ -60,7 +60,7 @@ In the list of “Attached vNICs” you should see 2 vNICs where the 1-st one is
 
 3.5	Open your VCN, click on VLANs and open the created VLAN.  Click on “Add External Access” button and add a reserved public IP for every guest VM that requires internet access (egress or ingress). Specifying private IP is optional (if not specified it will be allocated automatically from VLAN CIDR range..
 
-*Note: This step can be deferred to a later stage once guest VM(s) are created.
+*Note: This step can be deferred to a later stage once guest VM(s) are created*
 
 ![image](https://user-images.githubusercontent.com/54962742/184031677-c6ef1f8f-611c-40cb-897e-b146889a3d2a.png)
 
