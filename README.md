@@ -152,7 +152,8 @@ Check that all vGPU devices are created
 
 mdevctl list
 
-![image](https://user-images.githubusercontent.com/54962742/184032161-0b73b3e2-70d0-4ef8-b785-b8f7cb7a9e40.png)
+![image](https://user-images.githubusercontent.com/54962742/184044555-06839f0b-5d8b-416c-934a-8004f375bebf.png)
+
  
 *Note: In this example the name of vGPU profile “nvidia-593” corresponds to A10-4Q vGPU profile. However, on your server the profile could be different. It depends on Nvidia driver version*
 
