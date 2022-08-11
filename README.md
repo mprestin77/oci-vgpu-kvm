@@ -145,14 +145,14 @@ Enter the number to select PCI bus you are creating the devices on.
 
 On completion the scrips shows the total number of created vGPU devices, for example:
 
-![image](https://user-images.githubusercontent.com/54962742/184044676-283a9a30-d0ed-41ef-bfff-975d6a1f1cb0.png)
+![image](https://user-images.githubusercontent.com/54962742/184044781-7f337305-0dd0-480b-b637-1781ddf4b06f.png)
  
 
 Check that all vGPU devices are created
 
 mdevctl list
 
-![image](https://user-images.githubusercontent.com/54962742/184044555-06839f0b-5d8b-416c-934a-8004f375bebf.png)
+![image](https://user-images.githubusercontent.com/54962742/184044748-083e7527-fcca-4bc4-8ed2-cdf940515d9b.png)
 
  
 *Note: In this example the name of vGPU profile “nvidia-593” corresponds to A10-4Q vGPU profile. However, on your server the profile could be different. It depends on Nvidia driver version*
