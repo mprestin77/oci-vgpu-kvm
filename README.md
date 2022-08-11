@@ -30,7 +30,7 @@ Select the latest Oracle Linux 8 non-GPU image, with at least 100 GB of boot vol
 
 Prior to creating the instance click on “Show Advanced Options” link and open OS Management Service Agent tab.
 
-*Note: It is recommended to uncheck “OS Management Service Agent” to avoid automatic apply of updates and patches that may cause interoperability problems with Nvidia drive*
+*Note: It is recommended to uncheck “OS Management Service Agent” to avoid automatic apply of updates and patches that may cause interoperability problems with Nvidia driver*
 
 ![image](https://user-images.githubusercontent.com/54962742/184031215-a0b2e58e-430f-48e8-9195-a1864cfeb2f7.png)
 
