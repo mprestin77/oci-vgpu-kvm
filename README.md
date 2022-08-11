@@ -386,7 +386,7 @@ and search for “hostdev” device and replace UUID (see step 6.2)
   
 From virt-manager start the new VM and then using your RDP client RDP to the VM. The new VM is configured with the same static IP address as the original VM you were cloning from. In RDP session use the same public IP you used to connect the 1st VM. Open Network Connections in Windows OS and edit IP address of the new VM.
 
-*Note: To see the list of configured private and public VM see step 3.5*
+*Note: for the list of configured private and public VM see step 3.5*
 
 After setting the new static IP your RDP session will be disconnected. Create a new RDP session with the public IP associated with the new VM (see step 3.5). At this stage you can start both VMs since they don’t have IP conflict anymore. Nvidia display adapter should be shown in Device Manager of both VMs. 
 6.5	You can monitor vGPU usage of every guest VM from the host by running
