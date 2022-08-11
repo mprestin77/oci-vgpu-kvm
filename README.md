@@ -110,7 +110,7 @@ sudo dnf install -y tigervnc-server
 
 4.3	Enable SR-IOV virtual functions (VFs) for GPUs 
 
-*Note: change below values if PCI addresses reported in nvidia-smi are different
+*Note: change below values if PCI addresses reported in nvidia-smi are different*
 
 sudo /usr/lib/nvidia/sriov-manage -e 00000000:17:00.0
 sudo /usr/lib/nvidia/sriov-manage -e 00000000:31:00.0
@@ -154,7 +154,7 @@ mdevctl list
 
 ![image](https://user-images.githubusercontent.com/54962742/184032161-0b73b3e2-70d0-4ef8-b785-b8f7cb7a9e40.png)
  
-*Note: In this example the name of vGPU profile “nvidia-593” corresponds to A10-4Q vGPU profile. However, on your server the profile could be different. It depends on Nvidia driver version.
+*Note: In this example the name of vGPU profile “nvidia-593” corresponds to A10-4Q vGPU profile. However, on your server the profile could be different. It depends on Nvidia driver version*
 
 Rerun the script for every VGPU profile that you want to create. Only a single vGPU profile can be configured per GPU.
 
@@ -178,7 +178,7 @@ lsblk
  
 ![image](https://user-images.githubusercontent.com/54962742/184032240-e1844651-39d3-4b00-a55a-f110dd9b854c.png)
 
-*Note: if you need more space than the size of the local NVMe disk you can add Block Storage disk to the server and create a filesystem on it
+*Note: if you need more space than the size of the local NVMe disk you can add Block Storage disk to the server and create a filesystem on it*
 
 sudo mkfs.ext4 /dev/nvme0n1
 sudo mkdir /mnt/data
@@ -300,7 +300,7 @@ Press any key if you want to boot from CD…
 Press any key to continue with the installation. If you didn’t hit any key it will enter Boot Manager menu. Select “Reset” option and it will prompt to you press any key to boot from CD again.
 
 When installing a Windows VM enter the product or select "I don't have a product key" when prompted. Select Windows Edition you want to install.  
-*Note: If you are installing Windows 11 OS it requires a TPM and secure boot. This requirement can be bypassed before installation. Power off and start the VM again. Hit shift-F10 on the keyboard which will bring up a command prompt. From the command line, run "regedit". Under HKEY_LOCAL_MACHINE\SYSTEM\Setup add a new item (folder) named "LabConfig". Within the newly created LabConfig item, make two DWORD entries setting their values both to hex 1 - "BypassTPMCheck" and "BypassSecureBootCheck". Exit regex and continue installation as normal. 
+*Note: If you are installing Windows 11 OS it requires a TPM and secure boot. This requirement can be bypassed before installation. Power off and start the VM again. Hit shift-F10 on the keyboard which will bring up a command prompt. From the command line, run "regedit". Under HKEY_LOCAL_MACHINE\SYSTEM\Setup add a new item (folder) named "LabConfig". Within the newly created LabConfig item, make two DWORD entries setting their values both to hex 1 - "BypassTPMCheck" and "BypassSecureBootCheck". Exit regex and continue installation as normal.* 
 
 
 Windows setup will not detect virtIO disk because the driver is not installed. 
@@ -343,8 +343,8 @@ sudo virsh edit vm1
 
 Scroll down to the <devices> section and add the following XML. Use the UUID that matches the target VF. 
 
-*Note: you can get a list of all UUID associated with created vGPU VF by running 
-sudo mdevctl list
+*Note: you can get a list of all UUID associated with created vGPU VF by running  
+sudo mdevctl list*
 
 <hostdev mode='subsystem' type='mdev' model='vfio-pci'>
 <source>
@@ -373,8 +373,8 @@ For more information about Nvidia vGPU licensing refer to Configuring a Licensed
 
 Once VM is cloned return to the terminal console edit the new VM XML file to associate it with a new UUID. 
 
-*Note: you can get a list of all UUID associated with created vGPU VF by running 
-sudo mdevctl list
+*Note: you can get a list of all UUID associated with created vGPU VF by running   
+sudo mdevctl list*
 
 The 1st UUID you already configured in the 1st VM. Use the next available UUID.
 
