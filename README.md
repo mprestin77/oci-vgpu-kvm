@@ -145,7 +145,7 @@ Enter the number to select PCI bus you are creating the devices on.
 
 On completion the scrips shows the total number of created vGPU devices, for example:
 
-![image](https://user-images.githubusercontent.com/54962742/184032139-9324cb79-dd91-4b08-8894-ef6fbe299b55.png)
+![image](https://user-images.githubusercontent.com/54962742/184044472-872d7511-e1b9-4fb5-a60c-2eb09fac68df.png)
  
 
 Check that all vGPU devices are created
