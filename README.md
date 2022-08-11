@@ -177,7 +177,8 @@ Check the name of NVMe device
 
 lsblk
  
-![image](https://user-images.githubusercontent.com/54962742/184032240-e1844651-39d3-4b00-a55a-f110dd9b854c.png)
+![image](https://user-images.githubusercontent.com/54962742/184044956-5c39f0a6-0c93-4523-8e1b-efa9b96eb20e.png)
+
 
 *Note: if you need more space than the size of the local NVMe disk you can add Block Storage disk to the server and create a filesystem on it*
 
