@@ -30,7 +30,7 @@ Select the latest Oracle Linux 8 non-GPU image, with at least 100 GB of boot vol
 
 Prior to creating the instance click on “Show Advanced Options” link and open OS Management Service Agent tab.
 
-Note: It is recommended to uncheck “OS Management Service Agent” to avoid automatic apply of updates and patches that may cause interoperability problems with Nvidia driver 
+*Note: It is recommended to uncheck “OS Management Service Agent” to avoid automatic apply of updates and patches that may cause interoperability problems with Nvidia driver 
 
 ![image](https://user-images.githubusercontent.com/54962742/184031215-a0b2e58e-430f-48e8-9195-a1864cfeb2f7.png)
 
@@ -39,7 +39,7 @@ Note: It is recommended to uncheck “OS Management Service Agent” to avoid au
 Ingress: RDP 3398/TCP (add any other required ports/protocols)
 Egress: allow all/all 
 
-Note: if you want to enable any additional traffic to guest VMs that will be created in KVM environment on the berametal server, you can add all ingress ports/protocols to the NSG 
+*Note: if you want to enable any additional traffic to guest VMs that will be created in KVM environment on the berametal server, you can add all ingress ports/protocols to the NSG 
 
 3.3	Create a L2 VLAN Subnet in the VCN with a /24 CIDR as a part of VCN CIDR range, and associate the created NSG with the VLAN
 
@@ -60,7 +60,7 @@ In the list of “Attached vNICs” you should see 2 vNICs where the 1-st one is
 
 3.5	Open your VCN, click on VLANs and open the created VLAN.  Click on “Add External Access” button and add a reserved public IP for every guest VM that requires internet access (egress or ingress). Specifying private IP is optional (if not specified it will be allocated automatically from VLAN CIDR range..
 
-Note: This step can be deferred to a later stage once guest VM(s) are created.
+*Note: This step can be deferred to a later stage once guest VM(s) are created.
 
 ![image](https://user-images.githubusercontent.com/54962742/184031677-c6ef1f8f-611c-40cb-897e-b146889a3d2a.png)
 
@@ -110,7 +110,7 @@ sudo dnf install -y tigervnc-server
 
 4.3	Enable SR-IOV virtual functions (VFs) for GPUs 
 
-Note: change below values if PCI addresses reported in nvidia-smi are different
+*Note: change below values if PCI addresses reported in nvidia-smi are different
 
 sudo /usr/lib/nvidia/sriov-manage -e 00000000:17:00.0
 sudo /usr/lib/nvidia/sriov-manage -e 00000000:31:00.0
@@ -154,7 +154,7 @@ mdevctl list
 
 ![image](https://user-images.githubusercontent.com/54962742/184032161-0b73b3e2-70d0-4ef8-b785-b8f7cb7a9e40.png)
  
-Note: In this example the name of vGPU profile “nvidia-593” corresponds to A10-4Q vGPU profile. However, on your server the profile could be different. It depends on Nvidia driver version.
+*Note: In this example the name of vGPU profile “nvidia-593” corresponds to A10-4Q vGPU profile. However, on your server the profile could be different. It depends on Nvidia driver version.
 
 Rerun the script for every VGPU profile that you want to create. Only a single vGPU profile can be configured per GPU.
 
@@ -178,7 +178,7 @@ lsblk
  
 ![image](https://user-images.githubusercontent.com/54962742/184032240-e1844651-39d3-4b00-a55a-f110dd9b854c.png)
 
-Note: if you need more space than the size of the local NVMe disk you can add Block Storage disk to the server and create a filesystem on it
+*Note: if you need more space than the size of the local NVMe disk you can add Block Storage disk to the server and create a filesystem on it
 
 sudo mkfs.ext4 /dev/nvme0n1
 sudo mkdir /mnt/data
@@ -300,7 +300,7 @@ Press any key if you want to boot from CD…
 Press any key to continue with the installation. If you didn’t hit any key it will enter Boot Manager menu. Select “Reset” option and it will prompt to you press any key to boot from CD again.
 
 When installing a Windows VM enter the product or select "I don't have a product key" when prompted. Select Windows Edition you want to install.  
-Note: If you are installing Windows 11 OS it requires a TPM and secure boot. This requirement can be bypassed before installation. Power off and start the VM again. Hit shift-F10 on the keyboard which will bring up a command prompt. From the command line, run "regedit". Under HKEY_LOCAL_MACHINE\SYSTEM\Setup add a new item (folder) named "LabConfig". Within the newly created LabConfig item, make two DWORD entries setting their values both to hex 1 - "BypassTPMCheck" and "BypassSecureBootCheck". Exit regex and continue installation as normal. 
+*Note: If you are installing Windows 11 OS it requires a TPM and secure boot. This requirement can be bypassed before installation. Power off and start the VM again. Hit shift-F10 on the keyboard which will bring up a command prompt. From the command line, run "regedit". Under HKEY_LOCAL_MACHINE\SYSTEM\Setup add a new item (folder) named "LabConfig". Within the newly created LabConfig item, make two DWORD entries setting their values both to hex 1 - "BypassTPMCheck" and "BypassSecureBootCheck". Exit regex and continue installation as normal. 
 
 
 Windows setup will not detect virtIO disk because the driver is not installed. 
@@ -343,7 +343,7 @@ sudo virsh edit vm1
 
 Scroll down to the <devices> section and add the following XML. Use the UUID that matches the target VF. 
 
-Note: you can get a list of all UUID associated with created vGPU VF by running 
+*Note: you can get a list of all UUID associated with created vGPU VF by running 
 sudo mdevctl list
 
 <hostdev mode='subsystem' type='mdev' model='vfio-pci'>
@@ -373,7 +373,7 @@ For more information about Nvidia vGPU licensing refer to Configuring a Licensed
 
 Once VM is cloned return to the terminal console edit the new VM XML file to associate it with a new UUID. 
 
-Note: you can get a list of all UUID associated with created vGPU VF by running 
+*Note: you can get a list of all UUID associated with created vGPU VF by running 
 sudo mdevctl list
 
 The 1st UUID you already configured in the 1st VM. Use the next available UUID.
@@ -386,7 +386,7 @@ and search for “hostdev” device and replace UUID (see step 6.2)
   
 From virt-manager start the new VM and then using your RDP client RDP to the VM. The new VM is configured with the same static IP address as the original VM you were cloning from. In RDP session use the same public IP you used to connect the 1st VM. Open Network Connections in Windows OS and edit IP address of the new VM.
 
-Note: To see the list of configured private and public VM see step 3.5.
+*Note: To see the list of configured private and public VM see step 3.5.
 
 After setting the new static IP your RDP session will be disconnected. Create a new RDP session with the public IP associated with the new VM (see step 3.5). At this stage you can start both VMs since they don’t have IP conflict anymore. Nvidia display adapter should be shown in Device Manager of both VMs. 
 6.5	You can monitor vGPU usage of every guest VM from the host by running
