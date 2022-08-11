@@ -39,7 +39,7 @@ Prior to creating the instance click on “Show Advanced Options” link and ope
 Ingress: RDP 3398/TCP (add any other required ports/protocols)
 Egress: allow all/all 
 
-*Note: if you want to enable any additional traffic to guest VMs that will be created in KVM environment on the berametal server, you can add all ingress ports/protocols to the NSG 
+*Note: if you want to enable any additional traffic to guest VMs that will be created in KVM environment on the berametal server, you can add all ingress ports/protocols to the NSG*
 
 3.3	Create a L2 VLAN Subnet in the VCN with a /24 CIDR as a part of VCN CIDR range, and associate the created NSG with the VLAN
 
