@@ -139,7 +139,7 @@ sudo ./create-mdev.sh A10-4Q 6
 
 The script checks for all available PCI bus IDs and prompts you to select one where you want to create vGPU devices:
 
-![image](https://user-images.githubusercontent.com/54962742/184032038-b33e0aaf-45b7-46fe-bcdc-6f27b729224d.png)
+![image](https://user-images.githubusercontent.com/54962742/184044288-6c25b2ad-870e-4b26-806b-2084f2aa9dca.png)
 
 Enter the number to select PCI bus you are creating the devices on.
 
