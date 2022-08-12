@@ -369,12 +369,15 @@ Value: ServerAddress String(REG_SZ)
 The value should be set to your license server IP address 
 
 For more information about Nvidia vGPU licensing refer to Configuring a Licensed Client of Nvidia License System.
-6.4	You can create more VMs by cloning an existing VM. Open virt-manager and shutdown the VM you are going to clone. Prior to cloning you can edit VM properties and remove ISO files from CDROM(s). After that right click on the VM and select “Clone” option. Edit the name of the new VM qcow2 file, and type on Clone button.  
+
+# 7. Cloning Virtual Machines
+
+7.1 You can create more VMs by cloning an existing VM. Open virt-manager and shutdown the VM you are going to clone. Prior to cloning you can edit VM properties and remove ISO files from CDROM(s). After that right click on the VM and select “Clone” option. Edit the name of the new VM qcow2 file, and type on Clone button.  
 
 ![image](https://user-images.githubusercontent.com/54962742/184036977-9ffb2494-dd0f-4475-85dc-1933d4da5e8c.png)
  
 
-Once VM is cloned return to the terminal console edit the new VM XML file to associate it with a new UUID. 
+7.2 Once VM is cloned return to the terminal console edit the new VM XML file to associate it with a new UUID. 
 
 *Note: you can get a list of all UUID associated with created vGPU VF by running   
 sudo mdevctl list*
@@ -392,7 +395,10 @@ From virt-manager start the new VM and then using your RDP client RDP to the VM.
 *Note: for the list of configured private and public VM see step 3.5*
 
 After setting the new static IP your RDP session will be disconnected. Create a new RDP session with the public IP associated with the new VM (see step 3.5). At this stage you can start both VMs since they don’t have IP conflict anymore. Nvidia display adapter should be shown in Device Manager of both VMs. 
-6.5	You can monitor vGPU usage of every guest VM from the host by running
+
+# 8. Monnitoring vGPU Usage
+
+8.1 To monitoring vGPU usage of guest VMs run from the host 
 
 nvidia-smi vgpu -l
 
@@ -401,7 +407,7 @@ nvidia-smi vgpu -l
 
 To create GPU load start streaming or playing games using GPU inside a guest VM.  
 
-You can also monitor vGPU usage from guest VM OS in Windows Task Manager
+8.2 You can also monitor vGPU usage from guest VM OS in Windows Task Manager
 
 ![image](https://user-images.githubusercontent.com/54962742/184037044-4bf59268-985c-4459-ab8e-c392a4f597b4.png)
   
