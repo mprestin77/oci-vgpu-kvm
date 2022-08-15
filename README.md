@@ -6,7 +6,7 @@ NVIDIA virtual GPU (vGPU) is a graphics virtualization solution that provides mu
 
 # 2.	Prerequisites 
 
-To use vGPU graphics virtualization you need to get vGPU drivers from NVIDIA as described in as described in [Downloading Nvidia vGPU Software] (https://user-images.githubusercontent.com/54962742/184745070-39f9c88a-2187-4ead-9379-30f05daf6d75.png).
+To use vGPU graphics virtualization you need to get vGPU drivers from NVIDIA as described in as described in [Downloading Nvidia vGPU Software](https://user-images.githubusercontent.com/54962742/184745070-39f9c88a-2187-4ead-9379-30f05daf6d75.png).
 Login using your Enterprise account with Nvidia. If you don’t have an enterprise account with Nvidia you can select 90 days evaluation trial. Open Nvidia Licensing Portal / Software Downloads. Select “Product Family: VGPU”, Platform “Linux KVM”
 
 ![image](https://user-images.githubusercontent.com/54962742/184029997-257d9071-1a21-435c-a5e9-68f956904372.png)
