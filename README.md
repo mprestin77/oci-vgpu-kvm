@@ -131,9 +131,9 @@ For a complete list and description of Nvidia vGPU profiles go to
 https://docs.nvidia.com/grid/latest/pdf/grid-vgpu-user-guide.pdf
 
 For example, if you want to create vGPU with 4GB GPU memory you have a choice of 3 A10-4 vGPU profiles:
-A10-4A – Virtual Applications
-A10-4Q – Virtual Workstations
-A10-4C – Inference Workloads
+A10-4A – Virtual Applications  
+A10-4Q – Virtual Workstations  
+A10-4C – Inference Workloads  
 Select the profile that is more appropriate for your workload. For example, if you want to create 6 vGPU devices with A10-4Q profile (4GB GPU memory per vGPU) run:
 
 sudo ./create-mdev.sh A10-4Q 6
