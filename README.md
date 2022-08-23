@@ -106,8 +106,9 @@ sudo dnf install -y @virt
 sudo dnf install -y virt-manager  
 sudo dnf install -y virt-install  
 
-Install VNC server in order to launch virt-manager
-sudo dnf install -y tigervnc-server  
+Install VNC server in order to launch virt-manager  
+  
+sudo dnf install -y tigervnc-server    
 
 4.3	Enable SR-IOV virtual functions (VFs) for GPUs 
 
