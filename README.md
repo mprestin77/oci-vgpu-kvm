@@ -232,14 +232,15 @@ DEVICE=ens300f0.1687
 ONBOOT=yes  
 BRIDGE=bridge1  
 
-Bring up the bridge and host VLAN interfaces and restart the network service.  Check whether newly created interfaces are showing up after network restart:
-
-
+Bring up the bridge and host VLAN interfaces and restart the network service:
+  
 ifup bridge1  
 ifup ens300f0.1681  
  
 sudo systemctl restart network  
- 
+
+Check whether newly created interfaces are showing up after network restart:  
+  
 sudo ip link show  
 sudo systemctl restart network  
 sudo ip link show  
