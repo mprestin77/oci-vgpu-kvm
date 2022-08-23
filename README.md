@@ -272,18 +272,18 @@ Start VNC Viewer on your computer and connect to localhost:59000. It will prompt
 Here is an example of virt-install command to create a guest windows VM:
  
 sudo virt-install \  
---name vm1 \
---description "Windows 10 VM" \
---boot uefi \
---os-type=Windows \
---os-variant=win10 \
---memory=4096 \
---vcpus=2 \
---cpu host-passthrough \
---cdrom /mnt/data/iso/Win10_21H2_English_x64.iso \
---disk path=/mnt/data/vms/vm1.qcow2,format=qcow2,bus=virtio,size=50 \
---disk path=/mnt/data/iso/winvirtio.iso,device=cdrom \
---network bridge:bridge1,model=virtio 
+--name vm1 \  
+--description "Windows 10 VM" \  
+--boot uefi \  
+--os-type=Windows \  
+--os-variant=win10 \  
+--memory=4096 \  
+--vcpus=2 \  
+--cpu host-passthrough \  
+--cdrom /mnt/data/iso/Win10_21H2_English_x64.iso \  
+--disk path=/mnt/data/vms/vm1.qcow2,format=qcow2,bus=virtio,size=50 \  
+--disk path=/mnt/data/iso/winvirtio.iso,device=cdrom \  
+--network bridge:bridge1,model=virtio   
 
 Use it as a template and customize it with VM name, vcpu, memory and disk size, updated path to disk and cdrom ISO files. 
 
@@ -342,7 +342,7 @@ Open System / Remote Desktop and enable Remote Desktop connection in Windows OS.
 
 Return to the terminal console of the host. Manually edit the VM configuration using virsh command to add mdev device with the unique ID you used when creating the vGPU device
 
-sudo virsh edit vm1 
+sudo virsh edit vm1  
 
 Scroll down to the <devices> section and add the following XML. Use the UUID that matches the target VF. 
 
@@ -386,7 +386,7 @@ The 1st UUID you already configured in the 1st VM. Use the next available UUID.
 
 To edit the new VM XML file run
 
-sudo virsh edit <vm-name>
+sudo virsh edit <vm-name>  
 
 and search for “hostdev” device and replace UUID (see step 6.2)
   
@@ -400,7 +400,7 @@ After setting the new static IP your RDP session will be disconnected. Create a 
 
 8.1 To monitoring vGPU usage of guest VMs run from the host 
 
-nvidia-smi vgpu -l
+nvidia-smi vgpu -l  
 
 ![image](https://user-images.githubusercontent.com/54962742/184037003-6c9070ac-5e33-4772-be79-8c8c2f76e721.png)
   
