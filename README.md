@@ -356,11 +356,13 @@ Scroll down to the <devices> section and add the following XML. Use the UUID tha
 *Note: you can get a list of all UUID associated with created vGPU VF by running  
 sudo mdevctl list*
 
+*
 <hostdev mode='subsystem' type='mdev' model='vfio-pci'>
 <source>
 <address uuid='0f2d035e-43fb-4f82-beaa-abc9ff87bb53'/>
 </source>
 </hostdev>
+*
 
 Save the changes by typing ':wq' and pressing enter. Start the VM from virt-manager.  Connect to VM console, go to the CDROM drive with Nvidia vGPU driver ISO, install the driver and reboot the VM.
 
