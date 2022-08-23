@@ -235,9 +235,9 @@ BRIDGE=bridge1
 Bring up the bridge and host VLAN interfaces and restart the network service:
   
 ifup bridge1  
-ifup ens300f0.1681  
+ifup ens300f0.1687  
    
-Check that the bridge interface is brought online without errors. 
+Check that both interfaces are brought online without errors. 
      
 Check whether newly created interfaces are showing up after network restart:  
   
