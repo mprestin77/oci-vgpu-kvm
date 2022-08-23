@@ -362,7 +362,7 @@ sudo mdevctl list*
 <address uuid='0f2d035e-43fb-4f82-beaa-abc9ff87bb53'/>
 </source>
 </hostdev>
-.```
+```
 
 Save the changes by typing ':wq' and pressing enter. Start the VM from virt-manager.  Connect to VM console, go to the CDROM drive with Nvidia vGPU driver ISO, install the driver and reboot the VM.
 
