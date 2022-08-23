@@ -213,10 +213,10 @@ AUTOCONNECT_SLAVES=yes
 
 Attach the bridge to the VLAN interface
 
-sudo vi /etc/sysconfig/network-scripts/ifcfg-ens300f0.1687 
+sudo vi /etc/sysconfig/network-scripts/ifcfg-ens300f0.1687  
 where:
 ens300f0 is the primary host NIC
-1687 is the L2 VLANs VLAN tag that you copied in step 4 
+1687 is the L2 VLANs VLAN tag that you copied in step 3.4 
 
 Add the following content replacing VLAN ID with your VLAN tag  
 VLAN=yes  
