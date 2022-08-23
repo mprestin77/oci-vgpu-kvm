@@ -236,12 +236,11 @@ Bring up the bridge and host VLAN interfaces and restart the network service:
   
 ifup bridge1  
 ifup ens300f0.1681  
- 
-sudo systemctl restart network  
-
+   
+Check that the bridge interface is brought online without errors. 
+     
 Check whether newly created interfaces are showing up after network restart:  
   
-sudo ip link show  
 sudo systemctl restart network  
 sudo ip link show  
  
