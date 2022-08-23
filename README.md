@@ -271,7 +271,7 @@ Start VNC Viewer on your computer and connect to localhost:59000. It will prompt
 
 Here is an example of virt-install command to create a guest windows VM:
  
-sudo virt-install \
+sudo virt-install \  
 --name vm1 \
 --description "Windows 10 VM" \
 --boot uefi \
