@@ -265,7 +265,7 @@ netstat -plnt
  
 Exit from ssh session to create ssh tunnel for vnc
 
-ssh -L59000:localhost:5901 opc@instance-ip
+ssh -L59000:localhost:5901 opc@instance-public-ip
 
 Start VNC Viewer on your computer and connect to localhost:59000. It will prompt you to enter VNC password that you configured in step 12. Check that VNC connection is successful. If you are prompted “Authentication Required to create a color profile” you can cancel it and proceed with VNC setup.  It should connect you to the server desktop.
 
