@@ -160,7 +160,7 @@ mdevctl list
 
 Rerun the script for every VGPU profile that you want to create. Only a single vGPU profile can be configured per GPU.
 
-Add to root’s crontab to persist all configured devices after server reboot. Open root's crontab editor:
+Add to root’s crontab to persist all configured devices after server reboot. Open the crontab editor of root user:
 
 sudo crontab -e  
 
