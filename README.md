@@ -234,8 +234,8 @@ BRIDGE=bridge1
 
 Bring up the bridge and host VLAN interfaces and restart the network service:
   
-ifup bridge1  
-ifup ens300f0.1687  
+sudo ifup bridge1  
+sudo ifup ens300f0.1687  
    
 Check that both interfaces are brought online without errors. 
      
