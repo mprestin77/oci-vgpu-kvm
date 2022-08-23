@@ -101,13 +101,13 @@ The output of this command shows the version of the loaded Nvidia driver. The co
 
 4.2	Install required packages for KVM virtual environment
 
-sudo dnf groupinstall -y "Server with GUI"
-sudo dnf install -y @virt
-sudo dnf install -y virt-manager
-sudo dnf install -y virt-install
+sudo dnf groupinstall -y "Server with GUI"  
+sudo dnf install -y @virt  
+sudo dnf install -y virt-manager  
+sudo dnf install -y virt-install  
 
 Install VNC server in order to launch virt-manager
-sudo dnf install -y tigervnc-server
+sudo dnf install -y tigervnc-server  
 
 4.3	Enable SR-IOV virtual functions (VFs) for GPUs 
 
