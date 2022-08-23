@@ -160,9 +160,12 @@ mdevctl list
 
 Rerun the script for every VGPU profile that you want to create. Only a single vGPU profile can be configured per GPU.
 
-Add to root’s crontab to persist all configured devices after server reboot
+Add to root’s crontab to persist all configured devices after server reboot. Open root's crontab editor:
 
 sudo crontab -e  
+
+Enter the line below and save the file  
+  
 @reboot sudo /usr/lib/nvidia/sriov-manage -e ALL  
 
 4.4	Start libvirt service and enable automatic restart after server reboot
