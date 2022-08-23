@@ -173,7 +173,8 @@ Enter the line below and save the file
 sudo systemctl start libvirtd  
 sudo systemctl enable libvirtd   
 
-Configure libvirt user account
+Configure libvirt user account  
+
 sudo usermod -a -G libvirt $(whoami)  
 
 4.5	Create a filesystem on NVMe disk and mount it under /mnt/data.
