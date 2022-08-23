@@ -113,8 +113,8 @@ sudo dnf install -y tigervnc-server
 
 *Note: change below values if PCI addresses reported in nvidia-smi are different*
 
-sudo /usr/lib/nvidia/sriov-manage -e 00000000:17:00.0
-sudo /usr/lib/nvidia/sriov-manage -e 00000000:31:00.0
+sudo /usr/lib/nvidia/sriov-manage -e 00000000:17:00.0  
+sudo /usr/lib/nvidia/sriov-manage -e 00000000:31:00.0  
 
 Create vGPU devices with support of SR-IOV. Copy create-mdev.sh script to the server, add executable permission and run it. 
 
