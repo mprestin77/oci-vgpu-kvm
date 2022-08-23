@@ -247,6 +247,7 @@ sudo ip link show
 ![image](https://user-images.githubusercontent.com/54962742/184032443-2c03b4ed-09fe-4a9a-a206-6505831b063b.png)
 
 4.7	Make an ISO of the vGPU driver for guest VMs
+  
 genisoimage -o vgpu-guest-driver.iso 512.78_grid_win10_win11_server2016_server2019_server2022_64bit_international.exe 
 
 # 5.	Configuration in KVM
