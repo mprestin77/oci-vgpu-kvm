@@ -219,7 +219,7 @@ where:
 ens300f0 is the primary host NIC
 1687 is the L2 VLANs VLAN tag that you copied in step 3.4 
 
-Add the following content replacing VLAN ID with your VLAN tag  
+Add the following content replacing VLAN ID with your VLAN tag  and save the file  
 VLAN=yes  
 TYPE=Vlan  
 PHYSDEV=ens300f0   
