@@ -162,7 +162,7 @@ Rerun the script for every VGPU profile that you want to create. Only a single v
 
 Add to root’s crontab to persist all configured devices after server reboot
 
-sudo crontab -e
+sudo crontab -e  
 @reboot sudo /usr/lib/nvidia/sriov-manage -e ALL  
 
 4.4	Start libvirt service and enable automatic restart after server reboot
