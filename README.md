@@ -182,13 +182,13 @@ lsblk
 
 *Note: if you need more space than the size of the local NVMe disk you can add Block Storage disk to the server and create a filesystem on it*
 
-sudo mkfs.ext4 /dev/nvme0n1
-sudo mkdir /mnt/data
-sudo mount -t ext4 /dev/nvme0n1 /mnt/data
+sudo mkfs.ext4 /dev/nvme0n1  
+sudo mkdir /mnt/data  
+sudo mount -t ext4 /dev/nvme0n1 /mnt/data  
 
 Update /etc/fstab file to mount this filesystem after server reboot
 
-sudo vi /etc/fstab
+sudo vi /etc/fstab  
 
 Add a new line to the end of of the file
 
