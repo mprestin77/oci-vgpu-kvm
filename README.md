@@ -235,14 +235,14 @@ BRIDGE=bridge1
 Bring up the bridge and host VLAN interfaces and restart the network service.  Check whether newly created interfaces are showing up after network restart:
 
 
-ifup bridge1
-ifup ens300f0.1681
+ifup bridge1  
+ifup ens300f0.1681  
  
-sudo systemctl restart network
+sudo systemctl restart network  
  
-sudo ip link show
-sudo systemctl restart network
-sudo ip link show
+sudo ip link show  
+sudo systemctl restart network  
+sudo ip link show  
  
 ![image](https://user-images.githubusercontent.com/54962742/184032443-2c03b4ed-09fe-4a9a-a206-6505831b063b.png)
 
@@ -257,7 +257,7 @@ vncserver
 
 It will prompt you to create VNC password. Enter VNC password and verify it. You don’t need view-only password. Check that vnc server is listening on port 5901 (or another 59xx VNC port)
 
-netstat -plnt
+netstat -plnt  
 
 ![image](https://user-images.githubusercontent.com/54962742/184032516-d055c334-0b49-4516-b56a-d2afbfd7615a.png)
  
