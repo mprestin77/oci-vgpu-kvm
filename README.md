@@ -163,14 +163,15 @@ Rerun the script for every VGPU profile that you want to create. Only a single v
 Add to root’s crontab to persist all configured devices after server reboot
 
 sudo crontab -e
-@reboot sudo /usr/lib/nvidia/sriov-manage -e ALL
-4.4	Start libvirt service and enable automatic restart after server reboot
+@reboot sudo /usr/lib/nvidia/sriov-manage -e ALL  
 
-sudo systemctl start libvirtd
-sudo systemctl enable libvirtd 
+4.4	Start libvirt service and enable automatic restart after server reboot
+  
+sudo systemctl start libvirtd  
+sudo systemctl enable libvirtd   
 
 Configure libvirt user account
-sudo usermod -a -G libvirt $(whoami)
+sudo usermod -a -G libvirt $(whoami)  
 
 4.5	Create a filesystem on NVMe disk and mount it under /mnt/data.
 
