@@ -419,7 +419,7 @@ From virt-manager start the new VM and then using your RDP client RDP to the VM.
 
 *Note: for the list of configured private and public VM see step 3.5*
 
-After setting the new static IP your RDP session will be disconnected. Create a new RDP session with the public IP associated with the new VM (see step 3.5). At this stage you can start both VMs since they don’t have IP conflict anymore. Nvidia display adapter should be shown in Device Manager of both VMs. 
+After setting the new static IP your RDP session will be disconnected. Create a new RDP session with the public IP associated with the new VM (see step 3.5). At this stage you can start both VMs since they don’t have IP conflict anymore. Nvidia display adapter should be shown in Device Manager of both VMs. Register the new VM with Nvidia license server.
 
 # 9. Monitoring vGPU Usage
 
