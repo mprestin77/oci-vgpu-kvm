@@ -392,7 +392,7 @@ You can also check the client license status from the host by using the followin
 
 nvidia-smi vgpu -q  
    
-For every client VM using vGPU look for "License Status". 
+For every client VM using vGPU check "License Status" in the output of the command. 
 
 
 # 8. Cloning Virtual Machines
