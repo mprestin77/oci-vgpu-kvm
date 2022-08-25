@@ -372,21 +372,38 @@ Open Device Manager and check that Windows OS detects Nvidia Display Adapter wit
  
 ![image](https://user-images.githubusercontent.com/54962742/184036931-92d8575d-e31b-4567-be85-f6b32f419fea.png)
 
-6.3	Run regedit and create an entry for the vGPU license server
-Location: HKEY_LOCAL_MACHINE\SOFTWARE\NVIDIA Corporation\Global\GridLicensing
-Value: ServerAddress String(REG_SZ) 
-The value should be set to your license server IP address 
+# 7.	Registering with Nvidia vGPU Software License Server
 
-For more information about Nvidia vGPU licensing refer to Configuring a Licensed Client of Nvidia License System.
+7.1 vGPUs must be registered with Nvidia Software License Server. vGPU licensing is enforced through Nvidia software, the performance of the virtual GPU is degraded over time if the VM fails to obtain a license. Starting from vGPU version 13.0 NVIDIA License System supports the following types of service instances:
 
-# 7. Cloning Virtual Machines
+- Cloud License Service (CLS) instance. A CLS instance is hosted on the NVIDIA Licensing Portal  
+- Delegated License Service (DLS) instance. A DLS instance is hosted on-premises at a location that is accessible from your private network  
 
-7.1 You can create more VMs by cloning an existing VM. Open virt-manager and shutdown the VM you are going to clone. Prior to cloning you can edit VM properties and remove ISO files from CDROM(s). After that right click on the VM and select “Clone” option. Edit the name of the new VM qcow2 file, and type on Clone button.  
+For details please, refer to 
+
+[NVIDIA License System User Guide Guide](https://docs.nvidia.com/license-system/latest/nvidia-license-system-user-guide/index.html)  
+
+[NVIDIA License System Quick Start Guide](https://docs.nvidia.com/license-system/latest/nvidia-license-system-quick-start-guide)  
+
+7.2 Once vGPU license is registered with either Nvidia CLS or DSL license server you can confirm that by running running "nvidia-smi -q" on a Windows client VM. By default, nvidia-smi.exe is installed on Windows in c:\Program Files\NVIDIA Corporation\NVSMI folder. Look for "License status" in the output of the command
+  
+![image](https://user-images.githubusercontent.com/54962742/186746069-48828d66-d979-42c1-a19c-7840074f28ab.png)
+
+You can also check the client license status from the host by using following command:
+
+nvidia-smi vgpu -q  
+   
+For every client VM using vGPU look for "License Status". 
+
+
+# 8. Cloning Virtual Machines
+
+8.1 You can create more VMs by cloning an existing VM. Open virt-manager and shutdown the VM you are going to clone. Prior to cloning you can edit VM properties and remove ISO files from CDROM(s). After that right click on the VM and select “Clone” option. Edit the name of the new VM qcow2 file, and type on Clone button.  
 
 ![image](https://user-images.githubusercontent.com/54962742/184036977-9ffb2494-dd0f-4475-85dc-1933d4da5e8c.png)
  
 
-7.2 Once VM is cloned return to the terminal console edit the new VM XML file to associate it with a new UUID. 
+8.2 Once VM is cloned return to the terminal console edit the new VM XML file to associate it with a new UUID. 
 
 *Note: you can get a list of all UUID associated with created vGPU VF by running   
 sudo mdevctl list*
@@ -405,9 +422,9 @@ From virt-manager start the new VM and then using your RDP client RDP to the VM.
 
 After setting the new static IP your RDP session will be disconnected. Create a new RDP session with the public IP associated with the new VM (see step 3.5). At this stage you can start both VMs since they don’t have IP conflict anymore. Nvidia display adapter should be shown in Device Manager of both VMs. 
 
-# 8. Monitoring vGPU Usage
+# 9. Monitoring vGPU Usage
 
-8.1 To monitoring vGPU usage of guest VMs run from the host 
+9.1 To monitoring vGPU usage of guest VMs run from the host 
 
 nvidia-smi vgpu -l  
 
@@ -416,7 +433,7 @@ nvidia-smi vgpu -l
 
 To create GPU load start streaming or playing games using GPU inside a guest VM.  
 
-8.2 You can also monitor vGPU usage from guest VM OS in Windows Task Manager
+9.2 You can also monitor vGPU usage from guest VM OS in Windows Task Manager
 
 ![image](https://user-images.githubusercontent.com/54962742/184037044-4bf59268-985c-4459-ab8e-c392a4f597b4.png)
   
