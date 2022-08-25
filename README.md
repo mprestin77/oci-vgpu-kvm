@@ -388,7 +388,7 @@ For details how to obtain and register Nvidia vGPU license please, refer to
   
 ![image](https://user-images.githubusercontent.com/54962742/186746069-48828d66-d979-42c1-a19c-7840074f28ab.png)
 
-You can also check the client license status from the host by using following command:
+You can also check the client license status from the host by using the following command:
 
 nvidia-smi vgpu -q  
    
