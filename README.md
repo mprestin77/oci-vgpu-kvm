@@ -300,7 +300,10 @@ sudo virt-install \
 --disk path=/mnt/data/iso/winvirtio.iso,device=cdrom \  
 --network bridge:bridge1,model=virtio   
 
-Use it as a template and customize it with VM name, vcpu, memory and disk size, updated path to disk and cdrom ISO files. 
+Use it as a template and customize it with VM name, vcpu, memory and disk size, updated path to disk and cdrom ISO files. In my example I created 2 directories owned by root on the local NVMe disk  
+
+/mnt/data/vms - the directory where all VM qcow2 files will be created   
+/mnt/data/iso - the directory where I copied all ISO files  
 
 In this example I am using virtIO NIC and disk devices in the guest VM. You can download virtIO drivers from Oracle VirtIO Drivers for Microsoft Windows for Use With KVM
 
