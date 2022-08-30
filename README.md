@@ -390,7 +390,7 @@ Open Device Manager and check that Windows OS detects Nvidia Display Adapter wit
 - Cloud License Service (CLS) instance. A CLS instance is hosted on the NVIDIA Licensing Portal  
 - Delegated License Service (DLS) instance. A DLS instance is hosted on-premises at a location that is accessible from your private network  
 
-For details how to obtain and register Nvidia vGPU license please, refer to 
+In my OCI tenancy I am running DLS version 2.0 license server. You can download it from Nvidia Licensing Portal if you go to Software Downloads, Addition Software and select "DLS 2.0 for Linux KVM". Unzip the file and then and upload DLS QCOW2 file to OCI Object Storage. After that you can import it to OCI as a Paravirtual custom image and create a VM from it. Alternatively you can run DLS appliance as one of VMs in KVM environment. For details how to obtain and register Nvidia vGPU license please, refer to 
 
 [NVIDIA License System User Guide Guide](https://docs.nvidia.com/license-system/latest/nvidia-license-system-user-guide/index.html)  
 [NVIDIA License System Quick Start Guide](https://docs.nvidia.com/license-system/latest/nvidia-license-system-quick-start-guide)  
