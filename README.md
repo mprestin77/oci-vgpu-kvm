@@ -181,7 +181,7 @@ sudo usermod -a -G libvirt $(whoami)
 
 sudo /usr/libexec/oci-growfs  
 
-it prompts you to confirm  
+It prompts you to confirm  
 
 Expanding partition /dev/sda3: Confirm?   [y/N] y  
    
