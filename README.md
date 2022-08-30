@@ -177,7 +177,15 @@ Configure libvirt user account
 
 sudo usermod -a -G libvirt $(whoami)  
 
-4.5	Create a filesystem on NVMe disk and mount it under /mnt/data.
+4.5	Increase root filesystem to the full size of the boot volume. Run the following command  
+
+sudo /usr/libexec/oci-growfs  
+
+it prompts you to confirm  
+
+Expanding partition /dev/sda3: Confirm?   [y/N] y  
+   
+4.6   Create a filesystem on NVMe disk and mount it under /mnt/data.
 
 Check the name of NVMe device
 
@@ -201,7 +209,7 @@ Add a new line to the end of of the file
 /dev/nvme0n1    /mnt/data       ext4    defaults,noatime,_netdev      0      2
 
 
-4.6	Go back to ssh session and create a bridge interface to connect the OCI L2 VLAN on the primary host NIC to all the VM's PV NICs. Configure bridge network interface on the server. 
+4.7	Go back to ssh session and create a bridge interface to connect the OCI L2 VLAN on the primary host NIC to all the VM's PV NICs. Configure bridge network interface on the server. 
 
 sudo vi  /etc/sysconfig/network-scripts/ifcfg-bridge1
 
@@ -252,7 +260,7 @@ sudo ip link show
  
 ![image](https://user-images.githubusercontent.com/54962742/184032443-2c03b4ed-09fe-4a9a-a206-6505831b063b.png)
 
-4.7	Make an ISO of the vGPU driver for guest VMs
+4.8	Make an ISO of the vGPU driver for guest VMs
   
 genisoimage -o vgpu-guest-driver.iso 512.78_grid_win10_win11_server2016_server2019_server2022_64bit_international.exe 
 
@@ -345,7 +353,7 @@ Check that you can ping the gateway IP 10.0.79.1 and check that you have an exte
 
 Open System / Remote Desktop and enable Remote Desktop connection in Windows OS. You should be able to RDP the VM using the public IP assigned in step 3.5.
 
-6.2	Shutdown the VM and wait until the VM is stopped.  In virt-manager window edit the VM configuration by double clicking on the VM and clicking the Lightbulb icon. Navigate to the CD-ROM and change the ISO from Windows ISO to the vgpu-guest-driver.iso created in step 4.7.
+6.2	Shutdown the VM and wait until the VM is stopped.  In virt-manager window edit the VM configuration by double clicking on the VM and clicking the Lightbulb icon. Navigate to the CD-ROM and change the ISO from Windows ISO to the vgpu-guest-driver.iso created in step 4.8.
 
 Return to the terminal console of the host. Manually edit the VM configuration using virsh command to add mdev device with the unique ID you used when creating the vGPU device
 
