@@ -104,7 +104,8 @@ The output of this command shows the version of the loaded Nvidia driver. The co
 sudo dnf groupinstall -y "Server with GUI"  
 sudo dnf install -y @virt  
 sudo dnf install -y virt-manager  
-sudo dnf install -y virt-install  
+sudo dnf install -y virt-install
+sudo dnf install -y mdevctl
 
 Install VNC server in order to launch virt-manager  
   
