@@ -226,7 +226,7 @@ DEVICE=bridge1
 ONBOOT=yes  
 AUTOCONNECT_SLAVES=yes  
 
-Attach the bridge to the VLAN interface. Run "ip a" command and check the same of the primary NIC interface. On my server it is ens300f0. Create a VLAN interface on it using VLAN tag from copied in the step 3.4.  
+Attach the bridge to the VLAN interface. Run "ip a" command and check the name of the primary NIC interface. On my server it is ens300f0. Create a VLAN interface on it using VLAN tag copied in the step 3.4.  
 
 sudo vi /etc/sysconfig/network-scripts/ifcfg-ens300f0.1687  
   
