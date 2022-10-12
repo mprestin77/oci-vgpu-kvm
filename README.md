@@ -231,7 +231,7 @@ Attach the bridge to the VLAN interface. Run "ip a" command and check the same o
 sudo vi /etc/sysconfig/network-scripts/ifcfg-ens300f0.1687  
   
 where:
-ens300f0 is the primary host NIC
+ens300f0 is the primary host NIC  
 1687 is the VLAN tag  
 
 Add the following content replacing VLAN ID with your VLAN tag  and save the file  
