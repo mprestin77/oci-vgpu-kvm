@@ -396,7 +396,7 @@ In my OCI tenancy I am running DLS version 2.0.1 license server. You can downloa
 [NVIDIA License System User Guide Guide](https://docs.nvidia.com/license-system/latest/nvidia-license-system-user-guide/index.html)  
 [NVIDIA License System Quick Start Guide](https://docs.nvidia.com/license-system/latest/nvidia-license-system-quick-start-guide)  
 
-7.2 Once vGPU license is registered with Nvidia vGPU software license server you can confirm that by running running "nvidia-smi -q" on a Windows client VM. By default, nvidia-smi.exe is installed on Windows in c:\Program Files\NVIDIA Corporation\NVSMI folder. Look for "License status" in the output of the command
+7.2 Once vGPU license is registered with Nvidia vGPU software license server you can confirm that by running "nvidia-smi -q" on a Windows client VM. By default, nvidia-smi.exe is installed on Windows in c:\Program Files\NVIDIA Corporation\NVSMI folder. Look for "License status" in the output of the command
   
 ![image](https://user-images.githubusercontent.com/54962742/186746069-48828d66-d979-42c1-a19c-7840074f28ab.png)
 
