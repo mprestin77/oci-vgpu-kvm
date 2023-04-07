@@ -23,7 +23,8 @@ do
    pci_bus_id=$id
    break
 done
- 
+
+pci_bus_id=$(echo $pci_bus_id | tr '[:upper:]' '[:lower:]')
 echo $pci_bus_id
  
 virtfn=$(readlink -f /sys/bus/pci/devices/0000:$pci_bus_id/virtfn*)
