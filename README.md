@@ -104,6 +104,7 @@ sudo bash NVIDIA-Linux-x86_64-xxx.xx.xx-vgpu-kvm.run
 Ignore CC version check warning and hit Enter button. 
 
 When the driver installation is finished, reboot the server:
+
 sudo reboot
 
 Verify driver installation
