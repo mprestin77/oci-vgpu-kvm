@@ -74,7 +74,28 @@ After enabling external access to guest VMs you should see all public IP(s) in y
 
 # 4.	Oracle Linux 8 Host Setup Steps
 
-4.1	Copy the downloaded vGPU driver files to the server and install the host driver
+4.1	Copy the downloaded vGPU driver files to the server.  If you are using Oracle Linux 8.7 or later Oracle Linux image, prior to installing NVIDIA driver enable gcc-toolset-11 by running
+
+scl enable gcc-toolset-11 bash
+
+You’ll also need to disable nouveau driver that has a conflict with NVIDIA driver. Check if nouveau driver is loaded by running
+
+lsmod | grep nouveau
+
+If it shows nouveau driver in the output of the command, you’ll need to disable it first. To disable nouveau driver on Oracle Linux create the /etc/modprobe.d/blacklist-nouveau.conf file and add the content below:
+
+blacklist nouveau
+
+options nouveau modeset=0
+Save the file and re-generate initramfs:
+
+sudo dracut --force
+
+After disabling the driver reboot the server:
+
+sudo reboot
+
+and install the host driver
 
 sudo bash NVIDIA-Linux-x86_64-xxx.xx.xx-vgpu-kvm.run
 
