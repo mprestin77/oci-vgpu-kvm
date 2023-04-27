@@ -22,6 +22,7 @@ xxx.xx_grid_win10_win11_server2016_server2019_server2022_64bit_international.exe
 3.1	Deploy a Bare Metal GPU server using one of the baremetal shapes below
 
 BM.GPU.A10.4 (baremetal instance with 4 Nvidia A10 GPU)
+
 BM.GPU.T1.2 (baremetal instance with 2 Nvidia A10 GPU)  
 
 Select the latest Oracle Linux 8 non-GPU image, with at least 100 GB of boot volume space.  You can deploy it in an existing VCN with a public subnet or create a new VCN with a public subnet enabling ingress traffic to SSH port TCP/22.
