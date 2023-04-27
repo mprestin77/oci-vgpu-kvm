@@ -97,7 +97,7 @@ After disabling the driver reboot the server:
 
 sudo reboot
 
-and install the host driver
+Install Nvidia vGPU host driver
 
 sudo bash NVIDIA-Linux-x86_64-xxx.xx.xx-vgpu-kvm.run
 
