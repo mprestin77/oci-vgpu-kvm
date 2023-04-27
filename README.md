@@ -89,6 +89,7 @@ If it shows nouveau driver in the output of the command, you’ll need to disabl
 blacklist nouveau
 
 options nouveau modeset=0
+
 Save the file and re-generate initramfs:
 
 sudo dracut --force
@@ -97,17 +98,15 @@ After disabling the driver reboot the server:
 
 sudo reboot
 
-Install Nvidia vGPU host driver
+Install Nvidia vGPU host driver:
 
 sudo bash NVIDIA-Linux-x86_64-xxx.xx.xx-vgpu-kvm.run
 
-Ignore CC version check warning and hit Enter button. 
-
-When the driver installation is finished, reboot the server:
+Ignore CC version check warning and hit Enter button. When the driver installation is finished, reboot the server:
 
 sudo reboot
 
-Verify driver installation
+Verify driver installation:
 
 lsmod | grep nvidia
 
