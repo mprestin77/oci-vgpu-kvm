@@ -74,7 +74,9 @@ After enabling external access to guest VMs you should see all public IP(s) in y
 
 # 4.	Oracle Linux 8 Host Setup Steps
 
-4.1	Copy the downloaded vGPU driver files to the server.  If you are using Oracle Linux 8.7 or later Oracle Linux image, prior to installing NVIDIA driver enable gcc-toolset-11 by running
+4.1	Unzip the downloaded vGPU driver file and go to Host_Drivers folder. Copy NVIDIA Linux driver NVIDIA-Linux-x86_64-xxx.xx.xx-grid.run to the provisioned compute instance.  
+
+If you are using Oracle Linux 8.7 or later Oracle Linux image, prior to installing NVIDIA driver enable gcc-toolset-11 by running
 
 scl enable gcc-toolset-11 bash
 
